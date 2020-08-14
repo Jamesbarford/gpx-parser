@@ -1,11 +1,11 @@
 # Gpx parser
 
-This takes a GPX file fro mGarmin or strava and converts it into a simple to JSON structure
+This takes a GPX file from i.e Garmin or Strava and converts it into a simple to JSON structure
 
-The output is follows:
+## Output:
 
 ```ts
-interface Activity {
+{
     activityName: string;
     activityDate: string;
     activityType: number | null;
