@@ -1,0 +1,23 @@
+{
+  "name": "gpx-parser",
+  "version": "0.0.1",
+  "description": "Parses GPX files to JSON",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jamesbarford/flat-group.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Barford-Evans",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/xml2js": "^0.4.5",
+    "typescript": "^3.8.2"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.23"
+  }
+}
