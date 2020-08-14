@@ -9,15 +9,13 @@ interface Activity {
     activityName: string;
     activityDate: string;
     activityType: number | null;
-    activityDataPoints: ActivityDataPoint[];
-}
-
-interface ActivityDataPoint {
-    latitude: number | null;
-    longitude: number | null;
-    timestamp: string | undefined;
-    elevation: number | null;
-    heartRate: number | null;
-    cadence: number | null;
+    activityDataPoints: Array<{
+        latitude: number | null;
+        longitude: number | null;
+        timestamp: string | undefined;
+        elevation: number | null;
+        heartRate: number | null;
+        cadence: number | null;
+    }>
 }
 ```
