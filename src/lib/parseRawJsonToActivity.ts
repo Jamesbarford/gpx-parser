@@ -4,10 +4,11 @@ import { Activity, createActivity } from "../model/Activity";
 import { ActivityDataPoint, createActivityDataPoint } from "../model/ActivityDataPoint";
 
 export function parseRawJsonToActivity(parsedXmlRaw: any): Activity {
-    const activityDate = getActivityDate(parsedXmlRaw);
     const activityName = getActivityName(parsedXmlRaw);
-    const activityDataRaw = getActivityDataRaw(parsedXmlRaw);
+    const activityDate = getActivityDate(parsedXmlRaw);
     const activityType = getActivityType(parsedXmlRaw);
+
+    const activityDataRaw = getActivityDataRaw(parsedXmlRaw);
     const parsedActivityData = parseRawActivityData(activityDataRaw);
 
     return createActivity(
@@ -18,23 +19,20 @@ export function parseRawJsonToActivity(parsedXmlRaw: any): Activity {
     );
 }
 
-function getActivityDataRaw(parsedXmlRaw: any): any[] {
-    return parsedXmlRaw?.gpx?.trk?.[0]?.trkseg?.[0]?.trkpt || [];
-}
-
 function getActivityName(parsedXmlRaw: any): string {
-    const maybeName = parsedXmlRaw?.gpx?.trk?.[0]?.name?.[0];
-    return escape(maybeName || "No activity name");
+    return parsedXmlRaw?.gpx?.trk?.[0]?.name?.[0] || "No activity name";
 }
 
 function getActivityDate(parsedXmlRaw: any): string {
-    const date = parsedXmlRaw?.gpx?.metadata?.[0]?.time?.[0];
-    return date;
+    return parsedXmlRaw?.gpx?.metadata?.[0]?.time?.[0];
 }
 
 function getActivityType(parsedXmlRaw: any): number {
-    const type = parsedXmlRaw?.gpx?.trk?.[0]?.type?.[0];
-    return type;
+    return parsedXmlRaw?.gpx?.trk?.[0]?.type?.[0];
+}
+
+function getActivityDataRaw(parsedXmlRaw: any): any[] {
+    return parsedXmlRaw?.gpx?.trk?.[0]?.trkseg?.[0]?.trkpt || [];
 }
 
 function parseRawActivityData(activityDataRaw: any): ActivityDataPoint[] {
