@@ -1,28 +1,28 @@
 import { parseAsNumberOrNull, parseAsStringOrUndefined } from "../lib/typeParsers";
 
 export interface ActivityDataPoint {
-    lat: number | null;
-    lon: number | null;
+    latitude: number | null;
+    longitude: number | null;
     timestamp: string | undefined;
     elevation: number | null;
-    hr: number | null;
-    cad: number | null;
+    heartRate: number | null;
+    cadence: number | null;
 }
 
 export function createActivityDataPoint(
     lat: any,
-    lon: any,
+    longitude: any,
     timestamp: any,
     elevation?: any,
-    hr?: any,
-    cad?: any
+    heartRate?: any,
+    cadence?: any
 ): ActivityDataPoint {
     return {
-        lat: parseAsNumberOrNull(lat),
-        lon: parseAsNumberOrNull(lon),
+        latitude: parseAsNumberOrNull(lat),
+        longitude: parseAsNumberOrNull(longitude),
         timestamp: parseAsStringOrUndefined(timestamp),
         elevation: parseAsNumberOrNull(elevation),
-        hr: parseAsNumberOrNull(hr),
-        cad: parseAsNumberOrNull(cad),
+        heartRate: parseAsNumberOrNull(heartRate),
+        cadence: parseAsNumberOrNull(cadence),
     };
 }
