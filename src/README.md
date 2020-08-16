@@ -1,11 +1,13 @@
-# GPX Parser 🥳
+# GPX Parser Lite 🥳
+
+A lightweight GPX parser
 
 Can either parse a file given a file path or can parse a GPX string. A GPX file is essentially XML.
 
 ## How to install 😱
 
 ```
-npm install --save gpx-parser
+npm install --save gpx-parser-lite
 ```
 
 ## Output 💾
@@ -35,7 +37,7 @@ interface Activity {
 The context for usage would be along the lines of a perhaps form submittal, where a `FileReader` can get the file as a string.
 
 ```ts
-import { parseGPXString, Activity } from "gpx-parser";
+import { parseGPXString, Activity } from "gpx-parser-lite";
 
 const activity: Activity = parseGPXString(GPX_STRING);
 ```
@@ -45,7 +47,7 @@ const activity: Activity = parseGPXString(GPX_STRING);
 The environment here would be node, possibly where the file path could be passed in as a command line argument
 
 ```ts
-import { parseGPXString, Activity } from "gpx-parser";
+import { parseGPXString, Activity } from "gpx-parser-lite";
 
 parseGPXString(GPX_FILE_PATH, (err, activity) => {
     // do something with activity

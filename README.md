@@ -1,4 +1,6 @@
-# Gpx parser
+# GPX Parser Lite 🥳
+
+A lightweight PGX parser.
 
 This takes a GPX file from i.e Garmin or Strava and converts it into a simple to JSON structure
 
