@@ -34,7 +34,7 @@ interface Activity {
 
 ### parseGPXString
 
-The context for usage would be along the lines of a perhaps form submittal, where a `FileReader` can get the file as a string.
+The context for usage would be along the lines of a perhaps form submittal, where a `FileReader` can get the file as a string and `POST` it to an express app:
 
 ```ts
 import { parseGPXString, Activity } from "gpx-parser-lite";
