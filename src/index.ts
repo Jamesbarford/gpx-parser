@@ -3,6 +3,7 @@ import { Parser } from "xml2js";
 
 import { parseRawJsonToActivity } from "./lib/parseRawJsonToActivity";
 import { Activity } from "./model/Activity";
+import { ActivityDataPoint } from "./model/ActivityDataPoint";
 
 async function parseGPXString(gpxFile: any): Promise<Activity | undefined> {
     const xmlParser = new Parser();
@@ -35,4 +36,4 @@ function parseGPXFile(gpxFilePath: any, callback?: NodeCallback): void {
     });
 }
 
-export {Activity, NodeCallback, parseGPXString, parseGPXFile}
+export {Activity, ActivityDataPoint, NodeCallback, parseGPXString, parseGPXFile}

@@ -1,6 +1,6 @@
 {
   "name": "gpx-parser-lite",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Parses GPX files to JSON",
   "main": "index.js",
   "types": "index.d.ts",
