@@ -6,8 +6,8 @@ This takes a GPX file from i.e Garmin or Strava and converts it into a simple to
 
 ```ts
 {
-    activityName: string;
-    activityDate: string;
+    name: string;
+    date: string;
     activityType: number | null;
     activityDataPoints: Array<{
         latitude: number | null;

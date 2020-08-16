@@ -1,11 +1,10 @@
 import fs from "fs";
-import util from "util";
 import { Parser } from "xml2js";
 
 import { parseRawJsonToActivity } from "./lib/parseRawJsonToActivity";
-import { log } from "./lib/util";
+import { Activity } from "./model/Activity";
 
-export async function parseGPXString(gpxFile: any) {
+async function parseGPXString(gpxFile: any): Promise<Activity | undefined> {
     const xmlParser = new Parser();
 
     if (typeof gpxFile === "string") {
@@ -13,7 +12,7 @@ export async function parseGPXString(gpxFile: any) {
         if (!parsedXmlRaw) return;
         return parseRawJsonToActivity(parsedXmlRaw);
     } else {
-        throw new Error(`Expected argument to be a string instead recieved: ${gpxFile}`);
+        throw new Error(`Expected argument to be a string instead received: ${gpxFile}`);
     }
 }
 
@@ -22,13 +21,13 @@ interface NodeCallback {
 }
 
 // this seems slightly academic
-export function parseGPXFile(gpxFilePath: any, callback?: NodeCallback): void {
+function parseGPXFile(gpxFilePath: any, callback?: NodeCallback): void {
     const xmlParser = new Parser();
 
-    fs.readFile(gpxFilePath, function (err, data) {
+    fs.readFile(gpxFilePath, (err, data) => {
         if (err) return callback?.(err);
 
-        xmlParser.parseString(data, function (err: any, parsedXmlRaw: any) {
+        xmlParser.parseString(data, (err: any, parsedXmlRaw: any) => {
             if (err) return callback?.(err);
 
             callback?.(null, parseRawJsonToActivity(parsedXmlRaw));
@@ -36,3 +35,4 @@ export function parseGPXFile(gpxFilePath: any, callback?: NodeCallback): void {
     });
 }
 
+export {Activity, NodeCallback, parseGPXString, parseGPXFile}

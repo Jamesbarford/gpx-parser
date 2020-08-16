@@ -1,3 +1,6 @@
 /nodemon.json
 node_modules
 .idea
+*.gpx
+test.ts
+dist
